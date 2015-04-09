@@ -1,0 +1,26 @@
+
+
+
+<h1>My cart</h1>
+welcome <?=$this->loginuser['name'] ?>
+<form action="<?php echo $this->baseUrl();?>/shopping/update" method="post">
+<table border='1'>
+<tr><td>name</td><td>price</td><td>nums</td><td>delete</td></tr>
+<?php foreach ($this->books as $item){?>
+<tr><td><?=$item['name'] ?></td><td><?=$item['price'] ?></td>	
+	<td>
+	<input type="hidden" name='bookids[]' value=<?=$item['id'] ?> />
+	<input type="text" name='booknums[]' value=<?=$item['nums'] ?> /></td>
+	<td>
+	<a href='<?php echo $this->baseUrl();?>/shopping/del?bookid=<?=$item['id'] ?>'>choose</a>
+	</td>
+</tr>
+<?php }?>
+</table>
+<br>
+<input type="submit" value="update">
+</form>
+<br>
+total price: $<?=$this->total_price ?><br><br>
+<a href='<?php echo $this->baseUrl();?>/hall/hallui'>go back to hall</a>
+	

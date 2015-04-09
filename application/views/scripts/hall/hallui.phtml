@@ -1,0 +1,22 @@
+<script language="javascript">
+function goMyCart(){
+	window.location.href="<?php echo $this->baseUrl();?>/shopping/showcart";
+}
+</script>
+
+
+<h1>Hall UI</h1>
+welcome <?=$this->loginuser['name'] ?>
+<table border='1'>
+<tr><td>name</td><td>author</td><td>publish</td><td>price</td><td>nums</td><td>buy</td></tr>
+<?php foreach ($this->books as $item){?>
+<tr><td><?=$item['name'] ?></td><td><?=$item['author'] ?></td>
+	<td><?=$item['publish'] ?></td><td><?=$item['price'] ?></td>
+	<td><?=$item['nums'] ?></td><td>
+	<a href='<?php echo $this->baseUrl();?>/shopping/addproduct?bookid=<?=$item['id'] ?>'>choose</a>
+	</td>
+</tr>
+<?php }?>
+</table>
+<br>
+<input type="button" onclick="goMyCart()" value="check cart">
